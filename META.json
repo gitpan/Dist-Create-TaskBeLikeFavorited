@@ -1,0 +1,49 @@
+{
+   "abstract" : "Install all $cpanid\\'s favorite modules",
+   "author" : [
+      "Steven Haryanto <stevenharyanto@gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Dist-Create-TaskBeLikeFavorited",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "File::Slurp" : 0,
+            "File::chdir" : 0,
+            "LWP::Simple" : 0,
+            "Log::Any" : 0,
+            "Mojo::DOM" : 0,
+            "Perinci::CmdLine" : 0,
+            "Rinci" : "v1.1.31",
+            "perl" : "5.010001"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "http://metacpan.org/dist/Dist-Create-TaskBeLikeFavorited/",
+      "repository" : {
+         "url" : "http://github.com/sharyanto/perl-Dist-Create-TaskBeLikeFavorited"
+      }
+   },
+   "version" : "0.01"
+}
+

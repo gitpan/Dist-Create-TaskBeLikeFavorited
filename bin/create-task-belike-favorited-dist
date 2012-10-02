@@ -1,0 +1,54 @@
+#!/usr/bin/perl
+
+use 5.010;
+use strict;
+use warnings;
+
+use Perinci::CmdLine;
+
+our $VERSION = '0.01'; # VERSION
+
+Perinci::CmdLine->new(url => '/Dist/Create/TaskBeLikeFavorited/create_task_belike_favorited_dist')->
+    run;
+
+1;
+# ABSTRACT: Create your own Task::BeLike::$AUTHOR::Favorited
+# PODNAME: create-task-belike-favorited-dist
+
+
+__END__
+=pod
+
+=head1 NAME
+
+create-task-belike-favorited-dist - Create your own Task::BeLike::$AUTHOR::Favorited
+
+=head1 VERSION
+
+version 0.01
+
+=head1 SYNOPSIS
+
+ # Create distribution in Task-BeLike-SHARYANTO-Favorited/
+ % create-task-belike-favorited-dist sharyanto
+
+ # Build/release your distribution
+ % dzil build
+ % dzil release
+
+ # Show available options
+ % create-task-belike-favorited-dist --help
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+

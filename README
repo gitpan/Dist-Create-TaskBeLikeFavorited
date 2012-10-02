@@ -1,0 +1,104 @@
+DESCRIPTION
+    This task will install modules favorited by $cpanid on
+    <http://metacpan.org>.
+
+NAME
+    Dist::Create::TaskBeLikeFavorited - Create your own
+    Task-BeLike-$AUTHOR-Favorited distribution
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+    To create and upload your dist to CPAN:
+
+     % create-task-belike-favorited-dist SHARYANTO
+     % cd Task-BeLike-SHARYANTO-Favorited
+     % # you'll probably want to edit dist.ini first to tweak stuffs
+     % dzil release
+
+    To update your dist and release to CPAN:
+
+     % cd Task-BeLike-SHARYANTO-Favorited
+     % update-task-belike-favorited-dist
+     % dzil release
+
+DESCRIPTION
+    "Task::BeLike::$AUTHOR::Favorited" tasks contain modules that have been
+    favorited by $AUTHOR (by clicking the "++" button) on
+    <http://metacpan.org>. This module creates distributions that contain
+    such tasks.
+
+    The created distributions currently require Dist::Zilla and
+    Dist::Zilla::PluginBundle::SHARYANTO to be built.
+
+FAQ
+  Why?
+    Mostly so you can do something like:
+
+     % cpanm -n Task::BeLike::YOU::Favorited
+
+    on a fresh system and conveniently have all your favorite modules
+    installed.
+
+    Of course, you'll have to build and upload your task distribution to
+    CPAN first (see Synopsis).
+
+DESCRIPTION
+    This module has Rinci metadata.
+
+FUNCTIONS
+    None are exported by default, but they are exportable.
+
+  create_task_belike_favorited_dist(%args) -> [status, msg, result, meta]
+    Create Task-BeLike-$AUTHOR-Favorited distribution.
+
+    Arguments ('*' denotes required arguments):
+
+    *   cpan_id* => *str*
+
+    *   target_dir => *str*
+
+        Target distribution directory.
+
+        Defaults to ./Task-BeLike-$AUTHOR-Favorited
+
+    Return value:
+
+    Returns an enveloped result (an array). First element (status) is an
+    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
+    function error). Second element (msg) is a string containing error
+    message, or 'OK' if status is 200. Third element (result) is optional,
+    the actual result. Fourth element (meta) is called result metadata and
+    is optional, a hash that contains extra information.
+
+  update_task_belike_favorited_dist() -> [status, msg, result, meta]
+    Update Task-BeLike-$AUTHOR-Favorited distribution.
+
+    No arguments.
+
+    Return value:
+
+    Returns an enveloped result (an array). First element (status) is an
+    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
+    function error). Second element (msg) is a string containing error
+    message, or 'OK' if status is 200. Third element (result) is optional,
+    the actual result. Fourth element (meta) is called result metadata and
+    is optional, a hash that contains extra information.
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2012 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
+POD ERRORS
+    Hey! The above document had some coding errors, which are explained
+    below:
+
+    Around line 136:
+        Unknown directive: =pkgroup
+

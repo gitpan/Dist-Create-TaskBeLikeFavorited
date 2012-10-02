@@ -1,0 +1,48 @@
+#!/usr/bin/perl
+
+use 5.010;
+use strict;
+use warnings;
+
+use Perinci::CmdLine;
+
+our $VERSION = '0.01'; # VERSION
+
+Perinci::CmdLine->new(url => '/Dist/Create/TaskBeLikeFavorited/update_task_belike_favorited_dist')->
+    run;
+
+1;
+# ABSTRACT: Update your Task::BeLike::$AUTHOR::Favorited distribution
+# PODNAME: update-task-belike-favorited-dist
+
+
+__END__
+=pod
+
+=head1 NAME
+
+update-task-belike-favorited-dist - Update your Task::BeLike::$AUTHOR::Favorited distribution
+
+=head1 VERSION
+
+version 0.01
+
+=head1 SYNOPSIS
+
+ % cd Task-BeLike-SHARYANTO-Favorited
+ % update-task-belike-favorited-dist
+ % dzil release
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+

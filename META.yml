@@ -1,0 +1,28 @@
+---
+abstract: "Install all $cpanid\\'s favorite modules"
+author:
+  - 'Steven Haryanto <stevenharyanto@gmail.com>'
+build_requires:
+  Module::Build: 0.3601
+configure_requires:
+  Module::Build: 0.3601
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Dist-Create-TaskBeLikeFavorited
+requires:
+  File::Slurp: 0
+  File::chdir: 0
+  LWP::Simple: 0
+  Log::Any: 0
+  Mojo::DOM: 0
+  Perinci::CmdLine: 0
+  Rinci: v1.1.31
+  perl: 5.010001
+resources:
+  homepage: http://metacpan.org/dist/Dist-Create-TaskBeLikeFavorited/
+  repository: http://github.com/sharyanto/perl-Dist-Create-TaskBeLikeFavorited
+version: 0.01
