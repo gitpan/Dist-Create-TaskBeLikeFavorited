@@ -1,5 +1,5 @@
 {
-   "abstract" : "Install all $cpanid\\'s favorite modules",
+   "abstract" : "Create your own Task-BeLike-$AUTHOR-Favorited distribution",
    "author" : [
       "Steven Haryanto <stevenharyanto@gmail.com>"
    ],
@@ -44,6 +44,6 @@
          "url" : "http://github.com/sharyanto/perl-Dist-Create-TaskBeLikeFavorited"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02"
 }
 

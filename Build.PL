@@ -12,12 +12,12 @@ my %module_build_args = (
   "configure_requires" => {
     "Module::Build" => "0.3601"
   },
-  "dist_abstract" => "Install all \$cpanid\\'s favorite modules",
+  "dist_abstract" => "Create your own Task-BeLike-\$AUTHOR-Favorited distribution",
   "dist_author" => [
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Dist-Create-TaskBeLikeFavorited",
-  "dist_version" => "0.01",
+  "dist_version" => "0.02",
   "license" => "perl",
   "module_name" => "Dist::Create::TaskBeLikeFavorited",
   "recommends" => {},

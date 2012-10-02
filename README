@@ -7,7 +7,7 @@ NAME
     Task-BeLike-$AUTHOR-Favorited distribution
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
     To create and upload your dist to CPAN:
@@ -99,6 +99,6 @@ POD ERRORS
     Hey! The above document had some coding errors, which are explained
     below:
 
-    Around line 136:
+    Around line 137:
         Unknown directive: =pkgroup
 

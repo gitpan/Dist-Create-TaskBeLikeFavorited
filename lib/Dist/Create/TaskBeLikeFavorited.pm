@@ -11,7 +11,7 @@ use LWP::Simple;
 use Mojo::DOM;
 use POSIX qw(strftime);
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 our %SPEC;
 
@@ -121,13 +121,14 @@ _
     mkdir "lib/Task";
     mkdir "lib/Task/BeLike";
     mkdir "lib/Task/BeLike/$cpanid";
+    my $comment = "#"; # to prevent podweaver from being fooled
     write_file("lib/Task/BeLike/$cpanid/Favorited.pm", <<_);
 package Task::BeLike::$cpanid\::Favorited;
 
 # VERSION
 
 1;
-# ABSTRACT: Install all $cpanid\'s favorite modules
+$comment ABSTRACT: Install all $cpanid\'s favorite modules
 
 =head1 DESCRIPTION
 
@@ -199,7 +200,7 @@ Dist::Create::TaskBeLikeFavorited - Create your own Task-BeLike-$AUTHOR-Favorite
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
