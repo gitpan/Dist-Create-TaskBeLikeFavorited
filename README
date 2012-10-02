@@ -1,13 +1,9 @@
-DESCRIPTION
-    This task will install modules favorited by $cpanid on
-    <http://metacpan.org>.
-
 NAME
     Dist::Create::TaskBeLikeFavorited - Create your own
     Task-BeLike-$AUTHOR-Favorited distribution
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
     To create and upload your dist to CPAN:
@@ -94,11 +90,4 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 137:
-        Unknown directive: =pkgroup
 

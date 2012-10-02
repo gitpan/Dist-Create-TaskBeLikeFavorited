@@ -25,4 +25,4 @@ requires:
 resources:
   homepage: http://metacpan.org/dist/Dist-Create-TaskBeLikeFavorited/
   repository: http://github.com/sharyanto/perl-Dist-Create-TaskBeLikeFavorited
-version: 0.02
+version: 0.03

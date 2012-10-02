@@ -11,7 +11,7 @@ use LWP::Simple;
 use Mojo::DOM;
 use POSIX qw(strftime);
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 our %SPEC;
 
@@ -122,6 +122,7 @@ _
     mkdir "lib/Task/BeLike";
     mkdir "lib/Task/BeLike/$cpanid";
     my $comment = "#"; # to prevent podweaver from being fooled
+    my $pod = "="; # ditto
     write_file("lib/Task/BeLike/$cpanid/Favorited.pm", <<_);
 package Task::BeLike::$cpanid\::Favorited;
 
@@ -130,13 +131,13 @@ package Task::BeLike::$cpanid\::Favorited;
 1;
 $comment ABSTRACT: Install all $cpanid\'s favorite modules
 
-=head1 DESCRIPTION
+${pod}head1 DESCRIPTION
 
 This task will install modules favorited by $cpanid on L<http://metacpan.org>.
 
-=pkgroup Included modules
+${pod}pkgroup Included modules
 
-=cut
+${pod}cut
 _
     update_task_belike_favorited_dist();
 }
@@ -200,7 +201,7 @@ Dist::Create::TaskBeLikeFavorited - Create your own Task-BeLike-$AUTHOR-Favorite
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
