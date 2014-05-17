@@ -1,17 +1,18 @@
 package Dist::Create::TaskBeLikeFavorited;
 
-use 5.010;
+use 5.010001;
 use strict;
 use warnings;
+use experimental 'smartmatch';
 use Log::Any '$log';
 
 use File::chdir;
-use File::Slurp;
+use File::Slurp::Tiny qw(read_file write_file);
 use LWP::Simple;
 use Mojo::DOM;
 use POSIX qw(strftime);
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 our %SPEC;
 
@@ -123,8 +124,9 @@ _
     mkdir "lib/Task/BeLike/$cpanid";
     my $comment = "#"; # to prevent podweaver from being fooled
     my $pod = "="; # ditto
-    write_file("lib/Task/BeLike/$cpanid/Favorited.pm", <<_);
-package Task::BeLike::$cpanid\::Favorited;
+    # split package + PKG to work around false positive of DZP::Rinci::Validate
+    write_file("lib/Task/BeLike/$cpanid/Favorited.pm", "package " . <<_);
+Task::BeLike::$cpanid\::Favorited;
 
 # VERSION
 
@@ -191,9 +193,11 @@ sub update_task_belike_favorited_dist {
 1;
 # ABSTRACT: Create your own Task-BeLike-$AUTHOR-Favorited distribution
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -201,7 +205,7 @@ Dist::Create::TaskBeLikeFavorited - Create your own Task-BeLike-$AUTHOR-Favorite
 
 =head1 VERSION
 
-version 0.03
+This document describes version 0.04 of Dist::Create::TaskBeLikeFavorited (from Perl distribution Dist-Create-TaskBeLikeFavorited), released on 2014-05-17.
 
 =head1 SYNOPSIS
 
@@ -227,28 +231,8 @@ This module creates distributions that contain such tasks.
 The created distributions currently require L<Dist::Zilla> and
 L<Dist::Zilla::PluginBundle::SHARYANTO> to be built.
 
-=head1 FAQ
-
-=head2 Why?
-
-Mostly so you can do something like:
-
- % cpanm -n Task::BeLike::YOU::Favorited
-
-on a fresh system and conveniently have all your favorite modules installed.
-
-Of course, you'll have to build and upload your task distribution to CPAN first
-(see Synopsis).
-
-=head1 DESCRIPTION
-
-
-This module has L<Rinci> metadata.
-
 =head1 FUNCTIONS
 
-
-None are exported by default, but they are exportable.
 
 =head2 create_task_belike_favorited_dist(%args) -> [status, msg, result, meta]
 
@@ -270,7 +254,15 @@ Defaults to ./Task-BeLike-$AUTHOR-Favorited
 
 Return value:
 
-Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
 
 =head2 update_task_belike_favorited_dist() -> [status, msg, result, meta]
 
@@ -280,7 +272,59 @@ No arguments.
 
 Return value:
 
-Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
+=head1 FAQ
+
+=head2 Why?
+
+Mostly so you can do something like:
+
+ % cpanm -n Task::BeLike::YOU::Favorited
+
+on a fresh system and conveniently have all your favorite modules installed.
+
+Of course, you'll have to build and upload your task distribution to CPAN first
+(see Synopsis).
+
+=head2 But you can simply do something simpler like this instead ...
+
+ % cpan_favorites() {
+   perl -Mojo -E "g('https://metacpan.org/author/$1')->dom('td.release a')->pluck('text')->each(sub{s/-/::/g;say})"
+   }
+ % cpan_favorites SHARYANTO | cpanm -n
+
+True. Creating a task distribution on CPAN is definitely more work. However,
+creating a task distribution has several pro's: 1) it works offline if you
+mirror CPAN; 2) it lets you track your favorites over time by comparing past
+versions of the task.
+
+=head1 SEE ALSO
+
+http://blogs.perl.org/users/dpetrov/2012/11/install-all-metacpan-favorited-distributions.html
+
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/Dist-Create-TaskBeLikeFavorited>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-Dist-Create-TaskBeLikeFavorited>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Create-TaskBeLikeFavorited>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 
@@ -288,10 +332,9 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
