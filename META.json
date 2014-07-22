@@ -34,7 +34,7 @@
             "LWP::Simple" : "0",
             "Log::Any" : "0",
             "Mojo::DOM" : "0",
-            "Perinci::CmdLine" : "0",
+            "Perinci::CmdLine::Any" : "0",
             "Rinci" : "v1.1.31",
             "experimental" : "0",
             "perl" : "5.010001"
@@ -61,7 +61,7 @@
          "web" : "https://github.com/sharyanto/perl-Dist-Create-TaskBeLikeFavorited"
       }
    },
-   "version" : "0.04",
+   "version" : "0.05",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018001"

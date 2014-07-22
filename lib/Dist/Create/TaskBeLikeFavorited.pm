@@ -12,7 +12,7 @@ use LWP::Simple;
 use Mojo::DOM;
 use POSIX qw(strftime);
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 our %SPEC;
 
@@ -205,7 +205,7 @@ Dist::Create::TaskBeLikeFavorited - Create your own Task-BeLike-$AUTHOR-Favorite
 
 =head1 VERSION
 
-This document describes version 0.04 of Dist::Create::TaskBeLikeFavorited (from Perl distribution Dist-Create-TaskBeLikeFavorited), released on 2014-05-17.
+This document describes version 0.05 of Dist::Create::TaskBeLikeFavorited (from Perl distribution Dist-Create-TaskBeLikeFavorited), released on 2014-07-22.
 
 =head1 SYNOPSIS
 
@@ -263,6 +263,8 @@ First element (status) is an integer containing HTTP status code
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
 
+ (any)
+
 
 =head2 update_task_belike_favorited_dist() -> [status, msg, result, meta]
 
@@ -280,6 +282,8 @@ First element (status) is an integer containing HTTP status code
 200. Third element (result) is optional, the actual result. Fourth
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
+
+ (any)
 
 =head1 FAQ
 

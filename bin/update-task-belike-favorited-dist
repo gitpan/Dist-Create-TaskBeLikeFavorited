@@ -1,14 +1,14 @@
-#!/usr/bin/perl
+#!perl
 
 use 5.010;
 use strict;
 use warnings;
 
-use Perinci::CmdLine;
+use Perinci::CmdLine::Any;
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
-Perinci::CmdLine->new(url => '/Dist/Create/TaskBeLikeFavorited/update_task_belike_favorited_dist')->
+Perinci::CmdLine::Any->new(url => '/Dist/Create/TaskBeLikeFavorited/update_task_belike_favorited_dist')->
     run;
 
 1;
@@ -27,7 +27,7 @@ update-task-belike-favorited-dist - Update your Task::BeLike::$AUTHOR::Favorited
 
 =head1 VERSION
 
-This document describes version 0.04 of update-task-belike-favorited-dist (from Perl distribution Dist-Create-TaskBeLikeFavorited), released on 2014-05-17.
+This document describes version 0.05 of update-task-belike-favorited-dist (from Perl distribution Dist-Create-TaskBeLikeFavorited), released on 2014-07-22.
 
 =head1 SYNOPSIS
 

@@ -3,9 +3,9 @@ NAME
     Task-BeLike-$AUTHOR-Favorited distribution
 
 VERSION
-    This document describes version 0.04 of
+    This document describes version 0.05 of
     Dist::Create::TaskBeLikeFavorited (from Perl distribution
-    Dist-Create-TaskBeLikeFavorited), released on 2014-05-17.
+    Dist-Create-TaskBeLikeFavorited), released on 2014-07-22.
 
 SYNOPSIS
     To create and upload your dist to CPAN:
@@ -55,6 +55,8 @@ FUNCTIONS
     is called result metadata and is optional, a hash that contains extra
     information.
 
+     (any)
+
   update_task_belike_favorited_dist() -> [status, msg, result, meta]
     Update Task-BeLike-$AUTHOR-Favorited distribution.
 
@@ -70,6 +72,8 @@ FUNCTIONS
     element (result) is optional, the actual result. Fourth element (meta)
     is called result metadata and is optional, a hash that contains extra
     information.
+
+     (any)
 
 FAQ
   Why?
